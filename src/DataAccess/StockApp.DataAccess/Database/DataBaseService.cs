@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace StockApp.DataAccess.Database
 {
-   public partial class DataBaseservice
-    {
-        public void CriarTabelaCategoria()
+    public partial class DataBaseservice : IDataBaseService
+    {  
+        public void CriarBanco()
         {
             var sql = @"
-                        CREATE TABLE Categorias
-                        (
-                            Id int,
-                            Nome varchar(100)
-                        )";
+                        IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = 'StockApp')
+                        BEGIN
+                          CREATE DATABASE StockApp
+                         END
+                        ";
             try
             {
-                using (var conexao = new SqlConnection(SqlServerContext.ConexaoComBanco))
+                using (var conexao = new SqlConnection(SqlServerContext.ConexaoSemBanco))
                 {
                     var resultado = conexao.Execute(sql);
                 }
@@ -32,5 +32,7 @@ namespace StockApp.DataAccess.Database
                 throw;
             }
         }
+
+        
     }
 }
