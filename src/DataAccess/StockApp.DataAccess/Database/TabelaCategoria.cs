@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StockApp.DataAccess.Database
 {
-   public partial class DataBaseservice
+   public partial class DataBaseService
     {
         public void CriarTabelaCategoria()
         {

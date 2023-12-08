@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace StockApp.DataAccess.Database
 {
-    public partial class DataBaseservice : IDataBaseService
+    public partial class DataBaseService : IDataBaseService
     {  
         public void CriarBanco()
         {

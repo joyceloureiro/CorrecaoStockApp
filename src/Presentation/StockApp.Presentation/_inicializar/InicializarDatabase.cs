@@ -11,7 +11,7 @@ namespace StockApp.WindowsForms._inicializar
         
         public InicializarDatabase()
         {
-            _dataBaseService = new DataBaseservice();
+            _dataBaseService = new DataBaseService();
         }
 
         internal void Init() 
